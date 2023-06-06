@@ -27,10 +27,7 @@ verificar_nombre(Nombre_user, [_|Resto]):-
 
 systemRegister(Sistema, Nombre_user, Updated_Sistema):-
     get_user(Sistema, Usuarios),
-    verificar_nombre(Nombre_user, Usuarios)-> 
-    get_user(Sistema, Usuarios),
-    set_user(Sistema, Usuarios, Updated_Sistema)
-    ;
+    \+ verificar_nombre(Nombre_user, Usuarios),
     get_user_2(Sistema, Usuarios_2),
     user(Nombre_user, New_user),
     adduser_to_user(New_user, Usuarios_2, Updated_usuarios),
