@@ -27,10 +27,7 @@ verificar_letra(Letra, [_|Resto]):-
 
 systemAddDrive(Sistema, Letra, Nombre, Capacidad, Updated_Sistema):-
     get_drives(Sistema, Drives),
-    verificar_letra(Letra, Drives)-> 
-    get_drives(Sistema, Drives),
-    set_Drives(Sistema, Drives, Updated_Sistema)
-    ;
+    \+ verificar_letra(Letra, Drives), 
     get_drives_2(Sistema, Drives_2),
     drive(Letra, Nombre, Capacidad, New_Drive),
     addDrive_to_Drives(New_Drive, Drives_2, Updated_Drive),
